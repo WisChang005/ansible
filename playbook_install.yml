@@ -1,0 +1,13 @@
+---
+
+- name: say 'Install AP simulator on Ubuntu14.04'
+  hosts: all
+  tasks:
+
+    - script: "{{ playbook_dir }}/install_guide.sh"
+      become: True
+      register: result
+
+    - name: print stdout
+      debug:
+        msg: "{{ result.stdout }}"
